@@ -15,7 +15,7 @@ class Dropdown extends Component {
         return (
             <div class="btn-group">
 
-                <select id={this.props.id} class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <select id={this.props.id} onclick={this.props.onclick} class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       {this.state.list1.map(list1=>(
                           <option key={list1} value={list1}>
                               {list1}
