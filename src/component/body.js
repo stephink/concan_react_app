@@ -6,11 +6,13 @@ import axios from 'axios';
 class Body extends Component {
 
   constructor(props) {
+    
     super(props);
     this.state={
       data:[]
 
-    };
+    }
+    
 
     this.submit = this.submit.bind(this);
   }
@@ -26,19 +28,18 @@ class Body extends Component {
     document.querySelector('#lnamespan').textContent = lname;
     document.querySelector('#fullnamespan').textContent = fname + " " + lname;
 
-    axios.get('http://localhost:4444/concat/',{
-    params: {
-      firstName:fname,
+    axios.get('http://localhost:4444/concat',{
+    
+     params:{ firstName:fname,
       lastName:lname
-    }
-    }
+     }
+        }
     )
     .then(response=>{
-      // var dd=response.data;
-      // document.querySelector('#response').textContent = dd;
-       console.log(response.data)
-       this.setState({data:response.data})
-
+  
+       console.log(response.data);
+       document.querySelector('#ww').textContent =JSON.stringify(response.data);
+       
        }
       )
     .catch(error => alert(error))
@@ -107,46 +108,13 @@ class Body extends Component {
               
             </div>
           </div>
-                <div class="row" style={{ 'marginTop': '50px' }}>
+          <div class="raw" align="center" style={{ 'marginTop': '20px' }}>
 
-                  {this.state.data.map(data=>(<span id="re">
-                    <div class="col-md-12" align="center">
-                  <h3 style={{ 'text-decoration': 'underline' }}>Response</h3>
-                  <div class="row">
-                    <div class="col-md-6" align="right">
-                      <span>firstName</span>
-                    </div>
-                    <div class="col-md-6">
-                      <span>{data.firstName} </span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6" align="right">
-                      <span>lastName</span>
-                    </div>
-                    <div class="col-md-6">
-                      <span>{data.lastName} </span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6" align="right">
-                      <span>fullName</span>
-                    </div>
-                    <div class="col-md-6">
-                      <span>{data.fullName} </span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6" align="right">
-                      <span>message</span>
-                    </div>
-                    <div class="col-md-6">
-                      <span>{data.message} </span>
-                    </div>
-                  </div>
-                  </div>
-                    </span>))}
-              </div>
+          <span id="ww"></span>
+
+          </div>
+          
+                
         </div>
 
       </div>
