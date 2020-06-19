@@ -38,7 +38,7 @@ class Body extends Component {
     .then(response=>{
   
        console.log(response.data);
-       document.querySelector('#ww').textContent =JSON.stringify(response.data);
+       document.querySelector('#response').textContent =JSON.stringify(response.data);
        
        }
       )
@@ -110,7 +110,7 @@ class Body extends Component {
           </div>
           <div class="raw" align="center" style={{ 'marginTop': '20px' }}>
 
-          <span id="ww"></span>
+          <span id="response"></span>
 
           </div>
           
