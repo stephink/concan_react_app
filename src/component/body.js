@@ -8,10 +8,7 @@ class Body extends Component {
   constructor(props) {
     
     super(props);
-    this.state={
-      data:[]
-
-    }
+    
     
 
     this.submit = this.submit.bind(this);
@@ -28,11 +25,11 @@ class Body extends Component {
     document.querySelector('#lnamespan').textContent = lname;
     document.querySelector('#fullnamespan').textContent = fname + " " + lname;
 
-    axios.get('http://localhost:4444/concat',{
+    axios.post('http://localhost:4444/concat/new',{
     
-     params:{ firstName:fname,
+      firstName:fname,
       lastName:lname
-     }
+    
         }
     )
     .then(response=>{
@@ -57,6 +54,7 @@ class Body extends Component {
           </div>
 
         </div>
+
 
         <div class="card-body ">
           <form>
